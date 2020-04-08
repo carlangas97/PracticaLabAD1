@@ -1,12 +1,48 @@
-<p>login works!</p>
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-    <mat-label>Favorite food</mat-label>
-    <input matInput placeholder="Ex. Pizza" value="Sushi">
-  </mat-form-field>
 
-  <mat-form-field class="example-full-width">
-    <mat-label>Leave a comment</mat-label>
-    <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
-  </mat-form-field>
-</form>
+
+<div class="user_card">
+  <div style="display: flex; justify-content: center">
+    <div class="brand_logo_container">
+      <img src="assets/user.png" class="brand_logo" alt="Logo">
+    </div>
+  </div>
+
+  <div class="form_container">
+    <div style="margin-bottom: 15px">
+      <div style="display: flex">
+        <div class="input-group-prepend">
+          <span class="material-iconslogin">perm_identity</span>
+        </div>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Cuenta</mat-label>
+          <input [(ngModel)]="cuenta"  matInput #input maxlength="10" placeholder="No. Cuentas">
+          <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+        </mat-form-field>
+
+      </div>
+    </div>
+    <div style="margin-bottom: 15px">
+      <div style="display: flex">
+        <div class="input-group-prepend">
+          <span class="material-iconslogin">vpn_key</span>
+        </div>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Contrasena</mat-label>
+          <input [(ngModel)]="password" matInput placeholder="Contrasena" [type]="hide ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+
+      </div>
+
+      <button  style="display: flex" color="primary" mat-raised-button (click)="validateLogin()">
+        <mat-icon>done</mat-icon>
+        Iniciar  Sesio
+      </button>
+
+    </div>
+    <button style="display: flex; justify-content: center" mat-button >Registrate</button>
+</div>
