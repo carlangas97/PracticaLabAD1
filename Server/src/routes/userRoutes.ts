@@ -14,6 +14,7 @@ class UserRoutes {
         this.router.post('/analisis/create-user', userController.createuser);
         this.router.get('/analisis/list-user', userController.listuser);
         this.router.get('/analisis/list-user/:id', userController.listone);
+        this.router.post('/analisis/login-user', userController.userLogin);
     }
 
 }

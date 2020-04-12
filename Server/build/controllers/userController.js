@@ -40,5 +40,16 @@ class UserController {
             res.json(users);
         });
     }
+    userLogin(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const users = yield database_1.default.query('SELECT * from practica.Usuario where DPI=? and pass = ?', [req.body.DPI, req.body.pass]);
+            if (users.length > 0) {
+                res.json(users);
+            }
+            else {
+                res.send(false);
+            }
+        });
+    }
 }
 exports.userController = new UserController();

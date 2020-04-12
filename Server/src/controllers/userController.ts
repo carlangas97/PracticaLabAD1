@@ -30,6 +30,20 @@ class UserController {
         const users = await  pool.query('SELECT * from practica.Usuario where DPI=?',[id]);
         res.json(users);
     }
+
+    public async userLogin (req: Request ,res:Response){
+        
+        const users = await  pool.query('SELECT * from practica.Usuario where DPI=? and pass = ?',
+        [req.body.DPI, req.body.pass]);
+
+        if(users.length > 0 ){
+            res.json(users);
+        }
+        else{
+            res.send(false);
+        }
+        
+    }
 }
 
 export const userController = new UserController();
