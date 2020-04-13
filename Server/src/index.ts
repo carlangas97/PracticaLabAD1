@@ -1,6 +1,8 @@
 import express, {Application} from 'express';
 import cors from 'cors';
 import indexRoutes from './routes/indexRoutes';
+import userRoutes from './routes/userRoutes';
+import accountRoutes from './routes/accountRoutes'
 
 class Server{
 
@@ -20,6 +22,8 @@ class Server{
 
     routes(): void{
         this.app.use('/', indexRoutes);
+        this.app.use('/', userRoutes);
+        this.app.use('/', accountRoutes);
     }
 
     start(): void{

@@ -13,92 +13,43 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("../database"));
-class userController {
-    index(req, res) {
-        database_1.default.query('DESCRIBE banca');
-        res.json("games");
-    }
-    create_user(req, res) {
+class UserController {
+    createuser(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
+            const DPI = req.body.DPI;
+            const nombre = req.body.nombre;
+            const apellidos = req.body.apellidos;
+            const correo = req.body.correo;
+            const pass = req.body.pass;
+            const tipo_usuario = req.body.tipo_usuario;
+            database_1.default.query('INSERT INTO practica.Usuario (DPI,nombre,apellidos,correo,pass,tipo_usuario) values(?,?,?,?,?,?)', [DPI, nombre, apellidos, correo, pass, tipo_usuario]);
             console.log(req.body);
-            const carnet = req.body.carnet;
-            const a = 111111111111;
-            const b = 999999999999;
-            const noCuenta = Math.round(Math.random() * (b - a) + a);
-            yield database_1.default.query('INSERT INTO banca.usuario set ?', [req.body]);
-            yield database_1.default.query('INSERT INTO banca.cuenta set no_cuenta = ?, tipo_id = ?, usuario_carnet = ?, saldo = ?, estado = ?', [noCuenta, 1, carnet, 100, 1]);
-            res.json({ text: 'user and account created' });
+            res.json({ message: 'usuario registrado' });
         });
     }
-    create_curso(req, res) {
+    listuser(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log(req.body);
-            const id_curso = req.body.codigo_curso;
-            const curso = req.body.nombre_curso;
-            yield database_1.default.query('INSERT INTO banca.curso values (?,?)', [id_curso, curso]);
-            res.json({ text: 'cursoclear agregado' });
-        });
-    }
-    list(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const users = yield database_1.default.query('SELECT * FROM  banca.usuario');
+            const users = yield database_1.default.query('SELECT * from practica.Usuario');
             res.json(users);
         });
     }
-    list_curso(req, res) {
+    listone(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const curso = yield database_1.default.query('SELECT * FROM  banca.curso');
-            res.json(curso);
+            const { id } = req.params;
+            const users = yield database_1.default.query('SELECT * from practica.Usuario where DPI=?', [id]);
+            res.json(users);
         });
     }
-    disabled_account(req, res) {
+    userLogin(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { carnet } = req.params;
-            yield database_1.default.query('UPDATE banca.usuario SET habilitado=0 WHERE carnet=?', [carnet]);
-            res.json({ message: 'account disabled ' });
-        });
-    }
-    activate_account(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const { carnet } = req.params;
-            yield database_1.default.query('UPDATE banca.usuario SET habilitado=1 WHERE carnet=?', [carnet]);
-            res.json({ message: 'account disabled ' });
-        });
-    }
-    update_account(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const { carnet } = req.params;
-            const response = yield database_1.default.query('UPDATE banca.usuario SET ? Where carnet = ?', [req.body, carnet]);
-            //console.log(response);
-            if (response.changedRows > 0) {
-                res.send(true);
+            const users = yield database_1.default.query('SELECT * from practica.Usuario where DPI=? and pass = ?', [req.body.DPI, req.body.pass]);
+            if (users.length > 0) {
+                res.json(users);
             }
             else {
                 res.send(false);
             }
-        });
-    }
-    profile(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const { carnet } = req.params;
-            const response = yield database_1.default.query('SELECT * FROM banca.usuario WHERE carnet = ?', [carnet]);
-            if (response.length > 0) {
-                res.send(response);
-            }
-            else {
-                res.send(false);
-            }
-        });
-    }
-    historial_pagos(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            console.log(req.body);
-            //const a = 1;
-            //const b = 3;
-            //const tipo_pago = Math.round(Math.random()*(b-a)+a);
-            yield database_1.default.query('INSERT INTO banca.historial_pagos set ?', [req.body]);
-            res.json({ text: 'Pago Registrado' });
         });
     }
 }
-exports.UserController = new userController();
+exports.userController = new UserController();
