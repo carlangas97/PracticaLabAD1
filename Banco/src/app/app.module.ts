@@ -16,12 +16,16 @@ import {FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './Componentes/home/home.component';
 import { RouterModule } from '@angular/router';
+import { NoPageFoundComponent } from './Componentes/no-page-found/no-page-found.component';
+import { RegistrarComponent } from './Componentes/registrar/registrar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    NoPageFoundComponent,
+    RegistrarComponent
   ],
   imports: [
     BrowserModule,

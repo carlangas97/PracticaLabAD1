@@ -3,3 +3,5 @@ Server/node_modules/
 node_modules/
 jspm_packages/
 
+Server/.idea/workspace.xml
+Server/.idea/vcs.xml
