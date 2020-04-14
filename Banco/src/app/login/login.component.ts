@@ -52,6 +52,8 @@ export class LoginComponent implements OnInit {
         },
         error => console.error('error')
       );
+    }else {
+      this.openSnackBar('Datos Incorrectos', 'Close');
     }
   }
 
