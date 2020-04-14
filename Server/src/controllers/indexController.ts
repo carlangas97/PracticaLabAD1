@@ -7,8 +7,7 @@ import { blacklist} from '../libs/listblack'
 class IndexController {
 
     public index(req: Request, res: Response) {
-        pool.query('DESCRIBE banca');
-        res.json("games");
+       res.json("Conectado");
     }
 
 }

@@ -44,7 +44,8 @@ class UserController {
         return __awaiter(this, void 0, void 0, function* () {
             const users = yield database_1.default.query('SELECT * from practica.Usuario where DPI=? and pass = ?', [req.body.DPI, req.body.pass]);
             if (users.length > 0) {
-                res.json(users);
+                const resp = yield database_1.default.query('SELECT * from practica.Cuenta WHERE DPI=?', [req.body.DPI]);
+                res.json(resp);
             }
             else {
                 res.send(false);
