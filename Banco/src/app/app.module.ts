@@ -26,6 +26,7 @@ import { RegistrarComponent } from './Componentes/registrar/registrar.component'
     HomeComponent,
     NoPageFoundComponent,
     RegistrarComponent
+
   ],
   imports: [
     BrowserModule,

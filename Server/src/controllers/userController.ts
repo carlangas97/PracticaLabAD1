@@ -13,6 +13,7 @@ class UserController {
         const correo = req.body.correo;
         const pass = req.body.pass;
         const tipo_usuario = req.body.tipo_usuario;
+
         const no_cuenta = req.body.no_cuenta;
         const monto = req.body.monto;
         const a = 100000000;
@@ -50,6 +51,7 @@ class UserController {
         if(users.length > 0 ){
             const resp = await pool.query('SELECT * from practica.Cuenta WHERE DPI=?', [req.body.DPI])
             res.json(resp);
+
         }
         else{
             res.send(false);

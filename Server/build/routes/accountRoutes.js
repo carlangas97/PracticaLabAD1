@@ -10,6 +10,7 @@ class AccountRoutes {
     config() {
         this.router.get('/analisis/account/get-saldo/:cuenta', accountController_1.accountController.getSaldo);
         this.router.post('/analisis/account/create-account', accountController_1.accountController.CreateAccount);
+
     }
 }
 const accountRoutes = new AccountRoutes();

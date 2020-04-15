@@ -9,6 +9,15 @@ import {NoPageFoundComponent} from './Componentes/no-page-found/no-page-found.co
 const routes: Routes = [
 
   {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
     path: 'home/:codigo',
     component: HomeComponent
   },
