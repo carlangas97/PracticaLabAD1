@@ -22,7 +22,7 @@ export class RegistrarComponent implements OnInit {
   request: Usuario;
   contra2: string;
 
-  constructor(private registrarService: RegistrarService , private router: Router, private snackBar: MatSnackBar) { }
+  constructor(private registrarService: RegistrarService , public router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void { }
   newUser(DPI, nombre, apellidos, correo, pass, tipo_usuario, no_cuenta, monto): Usuario{
