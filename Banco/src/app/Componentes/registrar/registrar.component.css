@@ -1,4 +1,4 @@
-example-form {
+.example-form {
   min-width: 100px;
   max-width: 500px;
 }
@@ -32,7 +32,7 @@ mat-form-field {
 }
 
 .material-iconslogin {
-  font-family: 'Material Icons';
+  font-family: 'Material Icons', serif;
   font-weight: normal;
   font-style: normal;
   font-size: 28px;  /* Preferred icon size */
