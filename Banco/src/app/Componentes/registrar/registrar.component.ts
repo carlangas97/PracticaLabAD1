@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
-import {MatSnackBar} from "@angular/material/snack-bar";
-import {RegistrarService} from "../../Servicios/registrar.service";
-import {Usuario} from "../../Modelos/Registrar";
+import {Router} from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {RegistrarService} from '../../Servicios/registrar.service';
+import {Usuario} from '../../Modelos/Registrar';
 
 @Component({
   selector: 'app-registrar',
@@ -51,7 +51,7 @@ export class RegistrarComponent implements OnInit {
   }
 
   returnLogin(){
-    this.router.navigate(['/login'])
+    this.router.navigate(['/login']);
   }
 
 }
