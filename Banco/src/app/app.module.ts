@@ -18,6 +18,7 @@ import { HomeComponent } from './Componentes/home/home.component';
 import { RouterModule } from '@angular/router';
 import { NoPageFoundComponent } from './Componentes/no-page-found/no-page-found.component';
 import { RegistrarComponent } from './Componentes/registrar/registrar.component';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { RegistrarComponent } from './Componentes/registrar/registrar.component'
     NoopAnimationsModule,
     FormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    HttpClientTestingModule
   ],
   providers: [],
   bootstrap: [
