@@ -3,7 +3,6 @@ import {Router} from "@angular/router";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {RegistrarService} from "../../Servicios/registrar.service";
 import {Usuario} from "../../Modelos/Registrar";
-import {Login} from "../../Modelos/Login";
 
 @Component({
   selector: 'app-registrar',
