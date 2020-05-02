@@ -26,19 +26,33 @@ class AccountController {
             }
         });
     }
-    CreateAccount(req, res) {
+    getCuenta(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const DPI = req.body.DPI;
-            const no_cuenta = req.body.no_cuenta;
-            const monto = req.body.monto;
-            const a = 1000000000;
-            const b = 9999999999;
-            const codigo = Math.round(Math.random() * (b - a) + a);
-            database_1.default.query('INSERT INTO practica.Cuenta (codigo_usuario,DPI,no_cuenta,saldo_cuenta) values(?,?,?,?)', [codigo, DPI, no_cuenta, monto]);
-            console.log(req.body);
-            res.json({ message: 'usuario registrado' });
+            const users = yield database_1.default.query('SELECT * from practica.Cuenta ');
+            res.json(users);
+            res.send(false);
         });
     }
-
+    maketransaction(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const cuenta1 = req.body.cuenta1;
+            const cuenta2 = req.body.cuenta2;
+            const monto = req.body.monto;
+            const filas = yield database_1.default.query('UPDATE practica.Cuenta SET saldo_cuenta=saldo_cuenta-?  WHERE no_cuenta=?  ', [monto, cuenta1]);
+            // res.json({ message: 'debito realizado' });
+            if (filas != null) {
+                const filas2 = yield database_1.default.query('UPDATE practica.Cuenta SET saldo_cuenta=saldo_cuenta+?  WHERE no_cuenta=?  ', [monto, cuenta2]);
+                if (filas2 != null) {
+                    res.json({ message: 'transferencia realizada' });
+                }
+                else {
+                    res.send(false);
+                }
+            }
+            else {
+                res.send(false);
+            }
+        });
+    }
 }
 exports.accountController = new AccountController();
