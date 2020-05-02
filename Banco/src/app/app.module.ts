@@ -13,12 +13,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './Componentes/home/home.component';
 import { RouterModule } from '@angular/router';
 import { NoPageFoundComponent } from './Componentes/no-page-found/no-page-found.component';
 import { RegistrarComponent } from './Componentes/registrar/registrar.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {RegistrarService} from "./Servicios/registrar.service";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,6 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
     HomeComponent,
     NoPageFoundComponent,
     RegistrarComponent
-
   ],
   imports: [
     BrowserModule,
@@ -43,9 +43,11 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
     FormsModule,
     HttpClientModule,
     RouterModule,
-    HttpClientTestingModule
+    HttpClientTestingModule,
   ],
-  providers: [],
+  providers: [
+    RegistrarService,
+  ],
   bootstrap: [
     AppComponent
   ]
