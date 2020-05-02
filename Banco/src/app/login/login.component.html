@@ -16,8 +16,8 @@
 
         <mat-form-field class="example-full-width">
           <mat-label>Cuenta</mat-label>
-          <input [(ngModel)]="cuenta"  matInput #input maxlength="10" placeholder="No. Cuentas">
-          <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+          <input [(ngModel)]="cuenta"  matInput #input maxlength="13" placeholder="No. Cuentas">
+          <mat-hint align="end">{{input.value?.length || 0}}/13</mat-hint>
         </mat-form-field>
 
       </div>
@@ -44,5 +44,5 @@
       </button>
 
     </div>
-    <button style="display: flex; justify-content: center" mat-button >Registrate</button>
+    <button style="display: flex; justify-content: center" (click)="registrar()" mat-button >Registrate</button>
 </div>

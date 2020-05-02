@@ -13,11 +13,21 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './Componentes/home/home.component';
+import { RouterModule } from '@angular/router';
+import { NoPageFoundComponent } from './Componentes/no-page-found/no-page-found.component';
+import { RegistrarComponent } from './Componentes/registrar/registrar.component';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent,
+    NoPageFoundComponent,
+    RegistrarComponent
+
   ],
   imports: [
     BrowserModule,
@@ -30,9 +40,14 @@ import {FormsModule} from '@angular/forms';
     MatSnackBarModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    RouterModule,
+    HttpClientTestingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }
