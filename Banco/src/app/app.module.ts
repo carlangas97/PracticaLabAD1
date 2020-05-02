@@ -22,6 +22,7 @@ import {MatGridListModule} from "@angular/material/grid-list";
 // import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RegistrarService} from "./Servicios/registrar.service";
 import {LoginService} from "./Servicios/login.service";
+import {MatMenuModule} from "@angular/material/menu";
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import {LoginService} from "./Servicios/login.service";
     RouterModule,
     //HttpClientTestingModule,
     MatGridListModule,
+    MatMenuModule,
   ],
   providers: [
     RegistrarService,

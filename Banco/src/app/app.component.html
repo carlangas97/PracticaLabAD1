@@ -1,9 +1,35 @@
 <mat-toolbar color="primary">
   <span>{{title}} Del Estudiante</span>
+  <div style="align-items: center">
+    <button mat-button [matMenuTriggerFor]="menu" >Menu</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item [matMenuTriggerFor]="vertebrates">
+        <mat-icon>done</mat-icon>
+        <span>Trasnferencias</span>
+      </button>
+      <button mat-menu-item (click)="tipocambio()">
+        <mat-icon>done</mat-icon>
+        <span>Tipo de Cambio</span>
+      </button>
+      <button mat-menu-item (click)="loginout()">
+        <mat-icon>home</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+
+    <mat-menu #vertebrates="matMenu">
+      <button mat-menu-item >
+        <mat-icon>done</mat-icon>
+        <span>Realizar</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>done</mat-icon>
+        <span>Reporte</span>
+      </button>
+    </mat-menu>
+  </div>
 </mat-toolbar>
 <mat-card>
   <router-outlet></router-outlet>
 </mat-card>
-<mat-toolbar color="primary">
-  <a [routerLink]="['/']"><span class="glyphicon glyphicon-log-out" aria-hidden="true" ></span> Logout</a>
-</mat-toolbar>
+
