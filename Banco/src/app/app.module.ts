@@ -47,7 +47,7 @@ import {MatMenuModule} from "@angular/material/menu";
     FormsModule,
     HttpClientModule,
     RouterModule,
-    HttpClientTestingModule,
+    //HttpClientTestingModule,
     MatGridListModule,
     MatMenuModule,
   ],
