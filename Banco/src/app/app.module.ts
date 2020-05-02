@@ -18,8 +18,9 @@ import { HomeComponent } from './Componentes/home/home.component';
 import { RouterModule } from '@angular/router';
 import { NoPageFoundComponent } from './Componentes/no-page-found/no-page-found.component';
 import { RegistrarComponent } from './Componentes/registrar/registrar.component';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
+//import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RegistrarService} from "./Servicios/registrar.service";
+import {MatGridListModule} from "@angular/material/grid-list";
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {RegistrarService} from "./Servicios/registrar.service";
     FormsModule,
     HttpClientModule,
     RouterModule,
-    HttpClientTestingModule,
+    //HttpClientTestingModule,
+    MatGridListModule,
   ],
   providers: [
     RegistrarService,
