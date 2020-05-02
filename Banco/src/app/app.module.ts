@@ -19,7 +19,7 @@ import { RouterModule } from '@angular/router';
 import { NoPageFoundComponent } from './Componentes/no-page-found/no-page-found.component';
 import { RegistrarComponent } from './Componentes/registrar/registrar.component';
 import {MatGridListModule} from "@angular/material/grid-list";
-// import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RegistrarService} from "./Servicios/registrar.service";
 import {LoginService} from "./Servicios/login.service";
 import {MatMenuModule} from "@angular/material/menu";
