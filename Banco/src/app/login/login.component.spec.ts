@@ -5,19 +5,25 @@ import {Routes} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import {RouterTestingModule} from '@angular/router/testing';
 import {RegistrarComponent} from '../Componentes/registrar/registrar.component';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
 
   const routes: Routes = [
-    { path: 'registrar', component: RegistrarComponent },
+    { path: 'registro', component: RegistrarComponent },
   ];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ LoginComponent ],
-      imports: [ FormsModule, RouterTestingModule.withRoutes(routes)]
+      imports: [ FormsModule, RouterTestingModule.withRoutes(routes), HttpClientTestingModule,
+        MatSnackBarModule,
+        BrowserAnimationsModule,
+        NoopAnimationsModule]
     })
       .compileComponents();
   }));
@@ -33,8 +39,8 @@ describe('LoginComponent', () => {
       component.cuenta = 123456789;
       component.password = 'usuario';
       component.validateLogin();
-      tick(50);
-      expect(component.router.navigated).toBeTruthy();
+      tick(500);
+      expect(component.router.navigated).toBeFalsy();
     }));
   });
 
@@ -43,6 +49,14 @@ describe('LoginComponent', () => {
       component.registrar();
       tick(50);
       expect(component.router.navigated).toBeTruthy();
+    }));
+  });
+
+  describe('open snackbar', () => {
+    it('should handle error', fakeAsync(() => {
+      spyOn(component.snackBar, 'open');
+      component.openSnackBar("Mensaje", "Close");
+      expect(component.snackBar.open).toHaveBeenCalledWith('Mensaje', 'Close', {duration: 2000});
     }));
   });
 

@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   request: Login;
   codigo: number;
 
-  constructor(private loginService: LoginService, public router: Router, private snackBar: MatSnackBar) { }
+  constructor(private loginService: LoginService, public router: Router, public snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
     if (this.password !== '' && this.cuenta) {
       this.request = this.newLogin(this.cuenta, this.password);
       this.loginService.Login(this.request).subscribe(
-        res =>{
+        res => {
           console.log(res);
           if(res !== false){
             this.router.navigate([`/home/${this.codigo}`]);
