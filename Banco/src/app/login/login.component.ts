@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   request: Login;
   codigo: number;
 
-  constructor(private loginService: LoginService, private router: Router, private snackBar: MatSnackBar) { }
+  constructor(private loginService: LoginService, public router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -52,6 +52,12 @@ export class LoginComponent implements OnInit {
         },
         error => console.error('error')
       );
+    }else {
+      this.openSnackBar('Datos Incorrectos', 'Close');
     }
+  }
+
+  registrar(){
+    this.router.navigate([`/registro`]);
   }
 }

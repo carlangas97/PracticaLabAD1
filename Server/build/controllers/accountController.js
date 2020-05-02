@@ -39,5 +39,6 @@ class AccountController {
             res.json({ message: 'usuario registrado' });
         });
     }
+
 }
 exports.accountController = new AccountController();

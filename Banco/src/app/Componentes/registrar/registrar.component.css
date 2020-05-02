@@ -1,7 +1,6 @@
 .example-form {
   min-width: 100px;
   max-width: 500px;
-  width: 100%;
 }
 
 .example-full-width {
@@ -18,7 +17,7 @@
 }
 
 .sicebooton{
-  size: 900px;
+  size: 2000px;
 }
 
 mat-form-field {
@@ -80,8 +79,8 @@ mat-form-field {
 }
 
 .user_card {
-  height: 400px;
-  width: 95%;
+  height: 750px;
+  width: 75%;
   margin: auto;
   margin-top: 10%;
   background: rgba(88, 141, 243, 0.43);

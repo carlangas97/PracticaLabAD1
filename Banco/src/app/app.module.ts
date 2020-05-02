@@ -16,12 +16,18 @@ import {FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './Componentes/home/home.component';
 import { RouterModule } from '@angular/router';
+import { NoPageFoundComponent } from './Componentes/no-page-found/no-page-found.component';
+import { RegistrarComponent } from './Componentes/registrar/registrar.component';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    NoPageFoundComponent,
+    RegistrarComponent
+
   ],
   imports: [
     BrowserModule,
@@ -36,7 +42,8 @@ import { RouterModule } from '@angular/router';
     NoopAnimationsModule,
     FormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    HttpClientTestingModule
   ],
   providers: [],
   bootstrap: [

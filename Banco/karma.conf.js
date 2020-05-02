@@ -26,7 +26,7 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['Chrome'],
-    singleRun: false,
+    singleRun: true, //cambia a false si se quiere esperar modificaciones
     restartOnFileChange: true
   });
 };

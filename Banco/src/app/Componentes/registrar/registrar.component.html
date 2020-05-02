@@ -1,0 +1,106 @@
+<div class="user_card">
+  <div style="display: flex; justify-content: center">
+    <div>
+      <span style="font-style: bold; font-size: 24px; font-family: Candara,serif"> Registro para un nuevo usuario </span>
+    </div>
+  </div>
+
+  <div class="form_container">
+    <div style="margin-bottom: 15px">
+      <div style="display: flex">
+        <div class="input-group-prepend">
+        <span class="material-iconslogin"></span>
+      </div>
+        <mat-form-field class="example-full-width">
+          <mat-label>DPI</mat-label>
+          <input [(ngModel)]="DPI"  matInput #input maxlength="13" placeholder="DPI / CUI">
+          <mat-hint align="end"></mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div style="display: flex">
+        <div class="input-group-prepend">
+          <span class="material-iconslogin"></span>
+        </div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Nombres</mat-label>
+          <input [(ngModel)]="nombre" matInput #input placeholder="Nombres">
+          <mat-hint align="end"></mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div style="display: flex">
+        <div class="input-group-prepend">
+          <span class="material-iconslogin"></span>
+        </div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Apellido</mat-label>
+          <input [(ngModel)]="apellido" matInput #input  placeholder="Apellidos">
+          <mat-hint align="end"></mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div style="display: flex">
+        <div class="input-group-prepend">
+          <span class="material-iconslogin"></span>
+        </div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Correo electronico</mat-label>
+          <input [(ngModel)]="correo" matInput #input  placeholder="Correo electronico">
+          <mat-hint align="end"></mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div style="display: flex">
+        <div class="input-group-prepend">
+          <span class="material-iconslogin"></span>
+        </div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Contraseña</mat-label>
+          <input [(ngModel)]="pass" matInput #input  placeholder="Contraseña">
+          <mat-hint align="end"></mat-hint>
+        </mat-form-field>
+      </div>
+
+      <br>
+
+      <div style="display: flex">
+        <div class="input-group-prepend">
+          <span class="material-iconslogin"></span>
+        </div>
+        <mat-form-field class="example-full-width">
+          <mat-label>No. Cuenta</mat-label>
+          <input [(ngModel)]="cuenta" matInput #input  placeholder="No. Cuenta">
+          <mat-hint align="end"></mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div style="display: flex">
+        <div class="input-group-prepend">
+          <span class="material-iconslogin"></span>
+        </div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Monto Inicial (Q)</mat-label>
+          <input [(ngModel)]="monto" matInput #input  placeholder="Monto Inicial (Q)">
+          <mat-hint align="end"></mat-hint>
+        </mat-form-field>
+      </div>
+
+      <hr style="border: 5px">
+      <div>
+        <div style="display: flex">
+          <div class="input-group-prepend">
+            <span class="material-iconslogin"></span>
+          </div>
+          <mat-form-field class="example-full-width">
+            <mat-label>Confirmar Contraseña</mat-label>
+            <input [(ngModel)]="contra2" matInput #input  placeholder="Confirmar Contraseña">
+            <mat-hint align="end"></mat-hint>
+          </mat-form-field>
+        </div>
+        <br/>
+        <button  style="display: flex" color="primary" mat-raised-button (click)="Registrar()">
+          <mat-icon>done</mat-icon>
+          Registrarse
+        </button>
+      </div>
