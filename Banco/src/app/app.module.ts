@@ -18,9 +18,11 @@ import { HomeComponent } from './Componentes/home/home.component';
 import { RouterModule } from '@angular/router';
 import { NoPageFoundComponent } from './Componentes/no-page-found/no-page-found.component';
 import { RegistrarComponent } from './Componentes/registrar/registrar.component';
-//import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {RegistrarService} from "./Servicios/registrar.service";
 import {MatGridListModule} from "@angular/material/grid-list";
+// import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {RegistrarService} from "./Servicios/registrar.service";
+import {LoginService} from "./Servicios/login.service";
+
 
 @NgModule({
   declarations: [
@@ -49,6 +51,7 @@ import {MatGridListModule} from "@angular/material/grid-list";
   ],
   providers: [
     RegistrarService,
+    LoginService
   ],
   bootstrap: [
     AppComponent
