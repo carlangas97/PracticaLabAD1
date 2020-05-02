@@ -22,7 +22,6 @@ class UserController {
             const correo = req.body.correo;
             const pass = req.body.pass;
             const tipo_usuario = req.body.tipo_usuario;
-
             const no_cuenta = req.body.no_cuenta;
             const monto = req.body.monto;
             const a = 100000000;
@@ -38,7 +37,6 @@ class UserController {
                     res.json({ 'message': err });
                 }
             });
-
         });
     }
     listuser(req, res) {
@@ -58,10 +56,8 @@ class UserController {
         return __awaiter(this, void 0, void 0, function* () {
             const users = yield database_1.default.query('SELECT * from practica.Usuario where DPI=? and pass = ?', [req.body.DPI, req.body.pass]);
             if (users.length > 0) {
-
                 const resp = yield database_1.default.query('SELECT * from practica.Cuenta WHERE DPI=?', [req.body.DPI]);
                 res.json(resp);
-
             }
             else {
                 res.send(false);

@@ -12,7 +12,12 @@ class AccountRoutes {
 
     config(): void{
         this.router.get('/analisis/account/get-saldo/:cuenta', accountController.getSaldo);
-        this.router.post('/analisis/account/create-account', accountController.CreateAccount);
+        //this.router.post('/analisis/account/create-account', accountController.CreateAccount);
+        
+ this.router.get('/analisis/account/get-cuenta', accountController.getCuenta);
+ this.router.post('/analisis/transferencia', accountController.maketransaction);
+
+
 
     }
 
