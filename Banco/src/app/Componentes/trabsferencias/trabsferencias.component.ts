@@ -38,15 +38,9 @@ export class TrabsferenciasComponent implements OnInit {
   }
 
   Transferir(){
-    if (this.Saldo < this.Monto)
-    {
-      this.openSnackBar('Saldo insuficiente', '');
-    }else if(this.Monto == 0)
-    {
-      this.openSnackBar('Ingresar una cantidad', '');
-    }
-    else
-    {
+    if (this.Saldo < this.Monto) this.openSnackBar('Saldo insuficiente', '');
+    else if(this.Monto == 0) this.openSnackBar('Ingresar una cantidad', '');
+    else {
       console.log(this.Salida, this.Entrada, this.Monto)
       this.request = this.newTrans(this.Salida, this.Entrada, this.Monto);
       console.log(this.request)
