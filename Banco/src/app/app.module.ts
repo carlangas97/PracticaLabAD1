@@ -25,6 +25,7 @@ import {LoginService} from "./Servicios/login.service";
 import {MatMenuModule} from "@angular/material/menu";
 import { TrabsferenciasComponent } from './Componentes/trabsferencias/trabsferencias.component';
 import { ReportesComponent } from './Componentes/reportes/reportes.component';
+import {MatTableModule} from "@angular/material/table";
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { ReportesComponent } from './Componentes/reportes/reportes.component';
     //HttpClientTestingModule,
     MatGridListModule,
     MatMenuModule,
+    MatTableModule,
   ],
   providers: [
     RegistrarService,

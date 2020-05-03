@@ -33,6 +33,18 @@ class AccountController {
             res.send(false);
         });
     }
+    getTipo(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { cuenta } = req.params;
+            const user = yield database_1.default.query('SELECT tipo_usuario FROM practica.Usuario WHERE DPI=?', [cuenta]);
+            if (user.length > 0) {
+                res.json(user);
+            }
+            else {
+                res.send(false);
+            }
+        });
+    }
     maketransaction(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const cuenta1 = req.body.cuenta1;

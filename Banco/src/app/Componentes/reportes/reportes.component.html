@@ -1,1 +1,37 @@
-<p>reportes works!</p>
+<div class="user_card">
+  <div style="display: flex; justify-content: center">
+    <div>
+      <span style="font-style: bold; font-size: 24px; font-family: Candara,serif"> Reporte de transferencias </span>
+    </div>
+  </div>
+
+<br>
+  <br>
+        <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <!-- Position Column -->
+          <ng-container matColumnDef="fecha">
+            <mat-header-cell *matHeaderCellDef> Fecha </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.fecha.substring(0,10)}} </mat-cell>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="cuenta_salida">
+            <mat-header-cell *matHeaderCellDef> Cuenta de Salida </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.codigo_salida}} </mat-cell>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="cuenta_entrada">
+            <mat-header-cell *matHeaderCellDef> Cuenta de Entrada </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.codigo_entrada}} </mat-cell>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="monto">
+            <mat-header-cell *matHeaderCellDef> Monto Q </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.monto}} </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>

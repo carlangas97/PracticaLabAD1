@@ -14,7 +14,7 @@ import {Usuario} from "../../Modelos/Registrar";
 })
 export class TrabsferenciasComponent implements OnInit {
 
-  constructor(private transferenciasService: TransferenciasService, public router: Router, public snackBar: MatSnackBar, public  global: GlobalService) { }
+  constructor(private transferenciasService: TransferenciasService, public router: Router, public snackBar: MatSnackBar, public global: GlobalService) { }
 
   Salida: number
   Entrada: number
