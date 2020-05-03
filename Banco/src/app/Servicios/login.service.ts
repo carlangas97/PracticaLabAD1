@@ -13,12 +13,12 @@ const httpOptions = {
 })
 export class LoginService {
 
-  private API = 'http://54.200.138.95:3500/';
+  private API = 'http://54.200.138.95:3500';
 
   constructor(private http: HttpClient) { }
 
   public Login(request: Login){
-    return this.http.post(`${this.API}analisis/login-user`, request, httpOptions);
+    return this.http.post(`${this.API}/analisis/login-user`, request, httpOptions);
   }
 
 }

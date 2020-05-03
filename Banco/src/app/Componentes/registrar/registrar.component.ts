@@ -50,6 +50,10 @@ export class RegistrarComponent implements OnInit {
     }
   }
 
+  Regresar(){
+    this.returnLogin()
+  }
+
   returnLogin(){
     this.router.navigate(['/login']);
   }

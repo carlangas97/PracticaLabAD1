@@ -18,10 +18,13 @@ import { HomeComponent } from './Componentes/home/home.component';
 import { RouterModule } from '@angular/router';
 import { NoPageFoundComponent } from './Componentes/no-page-found/no-page-found.component';
 import { RegistrarComponent } from './Componentes/registrar/registrar.component';
+import {MatGridListModule} from "@angular/material/grid-list";
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RegistrarService} from "./Servicios/registrar.service";
+import {LoginService} from "./Servicios/login.service";
 import {MatMenuModule} from "@angular/material/menu";
-import {MatGridListModule} from "@angular/material/grid-list";
+import { TrabsferenciasComponent } from './Componentes/trabsferencias/trabsferencias.component';
+import { ReportesComponent } from './Componentes/reportes/reportes.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,9 @@ import {MatGridListModule} from "@angular/material/grid-list";
     LoginComponent,
     HomeComponent,
     NoPageFoundComponent,
-    RegistrarComponent
+    RegistrarComponent,
+    TrabsferenciasComponent,
+    ReportesComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +55,7 @@ import {MatGridListModule} from "@angular/material/grid-list";
   ],
   providers: [
     RegistrarService,
+    LoginService
   ],
   bootstrap: [
     AppComponent

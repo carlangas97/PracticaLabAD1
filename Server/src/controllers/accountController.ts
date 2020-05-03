@@ -20,6 +20,48 @@ class AccountController {
         }
         
     }
+
+    public async getCuenta(req: Request, res: Response) {
+        
+            
+            const users = await pool.query('SELECT * from practica.Cuenta ');
+
+                res.json(users);
+
+
+                res.send(false);
+
+      
+    }
+
+public async maketransaction(req: Request, res: Response) {
+        
+            const cuenta1 = req.body.cuenta1;
+            const cuenta2 = req.body.cuenta2;
+            const monto = req.body.monto;
+
+            const fecha =  new Date()
+
+            const filas = await pool.query('UPDATE practica.Cuenta SET saldo_cuenta=saldo_cuenta-?  WHERE codigo_usuario=?  ',[monto,cuenta1]);
+
+               // res.json({ message: 'debito realizado' });
+            if (filas!=null) {
+               const filas2= await pool.query('UPDATE practica.Cuenta SET saldo_cuenta=saldo_cuenta+?  WHERE codigo_usuario=?  ',[monto,cuenta2]);
+                if(filas2!=null){
+                   await pool.query('INSERT INTO practica.Transferencias (codigo_salida, codigo_entrada, monto,fecha) VALUES(?,?,?,?)', [cuenta1,cuenta2,monto,fecha])
+                    res.json({ message: 'transferencia realizada' });
+                }else{
+                    res.send(false);
+                }
+            }
+            else {
+                res.send(false);
+
+            }
+      
+
+
+    }
 }
 
 export const accountController = new AccountController();

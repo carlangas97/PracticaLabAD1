@@ -37,12 +37,20 @@
         </mat-form-field>
 
       </div>
-
-      <button  style="display: flex" color="primary" mat-raised-button (click)="validateLogin()">
-        <mat-icon>done</mat-icon>
-        Iniciar  Sesio
-      </button>
-
+    <table align="center">
+      <td>
+        <button  style="display: flex" color="primary" mat-raised-button (click)="validateLogin()">
+          <mat-icon>done</mat-icon>
+          Iniciar  Sesion
+        </button>
+      </td>
+      <td>
+        <button style="display: flex; justify-content: center" (click)="registrar()" mat-raised-button >
+          <mat-icon> person_pin_circle </mat-icon>
+          Registrate
+        </button>
+      </td>
+    </table>
     </div>
-    <button style="display: flex; justify-content: center" (click)="registrar()" mat-button >Registrate</button>
+
 </div>

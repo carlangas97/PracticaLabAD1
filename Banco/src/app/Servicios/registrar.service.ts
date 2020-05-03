@@ -13,11 +13,11 @@ const httpOptions = {
 })
 
 export class RegistrarService {
-  private API = 'http://54.200.138.95:3500/';
+  private API = 'http://54.200.138.95:3500';
 
   constructor(private http: HttpClient) { }
 
   public Registrar(request: Usuario){
-    return this.http.post(`${this.API}analisis/create-user`, request, httpOptions);
+    return this.http.post(`${this.API}/analisis/create-user`, request, httpOptions);
   }
 }

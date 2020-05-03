@@ -3,6 +3,7 @@ import cors from 'cors';
 import indexRoutes from './routes/indexRoutes';
 import userRoutes from './routes/userRoutes';
 import accountRoutes from './routes/accountRoutes'
+import transferRoutes from './routes/transferRoutes'
 
 class Server{
 
@@ -24,6 +25,7 @@ class Server{
         this.app.use('/', indexRoutes);
         this.app.use('/', userRoutes);
         this.app.use('/', accountRoutes);
+        this.app.use('/', transferRoutes);
     }
 
     start(): void{
