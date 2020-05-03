@@ -4,6 +4,8 @@ import {HomeComponent} from './Componentes/home/home.component';
 import {LoginComponent} from './login/login.component';
 import {RegistrarComponent} from "./Componentes/registrar/registrar.component";
 import {NoPageFoundComponent} from './Componentes/no-page-found/no-page-found.component';
+import {TrabsferenciasComponent} from "./Componentes/trabsferencias/trabsferencias.component";
+import {ReportesComponent} from "./Componentes/reportes/reportes.component";
 
 
 const routes: Routes = [
@@ -24,6 +26,14 @@ const routes: Routes = [
   {
     path: 'registro',
     component: RegistrarComponent
+  },
+  {
+    path: 'transferencias',
+    component: TrabsferenciasComponent
+  },
+  {
+    path: 'reportes/:codigo',
+    component: ReportesComponent
   },
   {
     path: '**',

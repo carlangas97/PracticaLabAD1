@@ -23,6 +23,8 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RegistrarService} from "./Servicios/registrar.service";
 import {LoginService} from "./Servicios/login.service";
 import {MatMenuModule} from "@angular/material/menu";
+import { TrabsferenciasComponent } from './Componentes/trabsferencias/trabsferencias.component';
+import { ReportesComponent } from './Componentes/reportes/reportes.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import {MatMenuModule} from "@angular/material/menu";
     LoginComponent,
     HomeComponent,
     NoPageFoundComponent,
-    RegistrarComponent
+    RegistrarComponent,
+    TrabsferenciasComponent,
+    ReportesComponent
   ],
   imports: [
     BrowserModule,

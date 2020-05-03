@@ -18,7 +18,6 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   public Login(request: Login){
-    console.log("Probando el server")
     return this.http.post(`${this.API}/analisis/login-user`, request, httpOptions);
   }
 

@@ -37,4 +37,12 @@ export class AppComponent {
     this.prueba();
     this.router.navigate([`/`]); // cambiar a la ventana de tipo de cambio
   }
+
+  transferencias(){
+    this.router.navigate(['/transferencias']) //Ventana de transferencias
+  }
+
+  reportes(){
+    this.router.navigate([`/reportes/${this.global.dpis}`]) //Ventana de reporte de transferencias
+  }
 }

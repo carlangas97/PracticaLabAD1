@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   hide = true;
   request: Login;
   codigo: number;
-
+  datos: any
   constructor(private loginService: LoginService, public router: Router, public snackBar: MatSnackBar, public  global: GlobalService) { }
 
   ngOnInit(): void {
@@ -44,8 +44,11 @@ export class LoginComponent implements OnInit {
       this.loginService.Login(this.request).subscribe(
         res => {
           console.log(res);
+          this.datos = res;
           if(res !== false){
             this.global.dpis = this.cuenta;
+            this.global.codigo = this.datos[0].codigo_usuario;
+            this.global.saldo = this.datos[0].saldo_cuenta;
             this.router.navigate([`/home/${this.cuenta}`]);
             // this.openSnackBar('nitido', 'Close');
           }
