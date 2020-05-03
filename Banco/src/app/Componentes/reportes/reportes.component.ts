@@ -23,6 +23,19 @@ export class ReportesComponent implements OnInit {
 
   ngOnInit(): void {
     this.ObtenerTipo()
+
+    if (this.global.dpis){
+      console.log("si hay ");
+    }else {
+      this.openSnackBar('Iniciar Sesion!!', 'Close');
+      this.router.navigate([`/`]);
+    }
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+    });
   }
 
   ObtenerTipo() {

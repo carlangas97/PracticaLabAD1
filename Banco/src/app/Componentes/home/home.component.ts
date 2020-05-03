@@ -15,7 +15,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     if (this.global.dpis){
       console.log("si hay ");
-      return;
     }else {
       this.openSnackBar('Iniciar Sesion!!', 'Close');
       this.router.navigate([`/`]);

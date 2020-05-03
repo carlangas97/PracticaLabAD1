@@ -39,10 +39,18 @@ export class AppComponent {
   }
 
   transferencias(){
-    this.router.navigate(['/transferencias']) //Ventana de transferencias
+    this.prueba();
+    this.router.navigate(['/transferencias']) // Ventana de transferencias
   }
 
   reportes(){
-    this.router.navigate([`/reportes/${this.global.dpis}`]) //Ventana de reporte de transferencias
+    this.prueba();
+    this.router.navigate([`/reportes/${this.global.dpis}`]) // Ventana de reporte de transferencias
   }
+
+  homis(){
+    this.prueba();
+    this.router.navigate([`/`]);
+  }
+
 }

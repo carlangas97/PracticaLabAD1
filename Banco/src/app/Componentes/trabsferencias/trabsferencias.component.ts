@@ -27,6 +27,12 @@ export class TrabsferenciasComponent implements OnInit {
     this.Salida = this.global.codigo
     this.Saldo = this.global.saldo
     console.log(this.Salida)
+    if (this.global.dpis){
+      console.log("si hay ");
+    }else {
+      this.openSnackBar('Iniciar Sesion!!', 'Close');
+      this.router.navigate([`/`]);
+    }
   }
 
   newTrans(cuenta1, cuenta2, monto): Transferencia{

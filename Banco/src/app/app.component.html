@@ -3,6 +3,10 @@
   <div style="align-items: center">
     <button mat-button [matMenuTriggerFor]="menu" >Menu</button>
     <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="homis()">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </button>
       <button mat-menu-item [matMenuTriggerFor]="vertebrates">
         <mat-icon>done</mat-icon>
         <span>Transferencias</span>
