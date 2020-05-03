@@ -40,12 +40,15 @@ public async maketransaction(req: Request, res: Response) {
             const cuenta2 = req.body.cuenta2;
             const monto = req.body.monto;
 
-            const filas = await pool.query('UPDATE practica.Cuenta SET saldo_cuenta=saldo_cuenta-?  WHERE no_cuenta=?  ',[monto,cuenta1]);
+            const fecha =  new Date()
+
+            const filas = await pool.query('UPDATE practica.Cuenta SET saldo_cuenta=saldo_cuenta-?  WHERE codigo_usuario=?  ',[monto,cuenta1]);
 
                // res.json({ message: 'debito realizado' });
             if (filas!=null) {
-               const filas2= await pool.query('UPDATE practica.Cuenta SET saldo_cuenta=saldo_cuenta+?  WHERE no_cuenta=?  ',[monto,cuenta2]);
+               const filas2= await pool.query('UPDATE practica.Cuenta SET saldo_cuenta=saldo_cuenta+?  WHERE codigo_usuario=?  ',[monto,cuenta2]);
                 if(filas2!=null){
+                   await pool.query('INSERT INTO practica.Transferencias (codigo_salida, codigo_entrada, monto,fecha) VALUES(?,?,?,?)', [cuenta1,cuenta2,monto,fecha])
                     res.json({ message: 'transferencia realizada' });
                 }else{
                     res.send(false);

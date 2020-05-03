@@ -1,0 +1,62 @@
+<div class="user_card">
+  <div style="display: flex; justify-content: center">
+    <div class="brand_logo_container">
+      <img src="assets/transfer.jpg" class="brand_logo" alt="Logo">
+    </div>
+    <div>
+      <span style="font-style: bold; font-size: 24px; font-family: Candara,serif"> Transferencias entre Cuentas </span>
+      <br>
+      <p style="font-style: bold; font-size: 18px; font-family: Candara,serif"> Las trasnsferencias se hacen con el codigo generado por la misma aplicacion </p>
+      <br>
+    </div>
+  </div>
+  <div class="form_container">
+    <div style="margin-bottom: 15px">
+      <div style="display: flex">
+        <div class="input-group-prepend">
+          <span class="material-iconslogin"></span>
+        </div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Cuenta saliente</mat-label>
+          <input [(ngModel)]="Salida" matInput #input placeholder="Codigo Saliente">
+          <mat-hint align="end"></mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div style="display: flex">
+        <div class="input-group-prepend">
+          <span class="material-iconslogin"></span>
+        </div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Cuenta a Transferir</mat-label>
+          <input [(ngModel)]="Entrada" matInput #input placeholder="Codigo Entrante">
+          <mat-hint align="end"></mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div style="display: flex">
+        <div class="input-group-prepend">
+          <span class="material-iconslogin"></span>
+        </div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Monto Q</mat-label>
+          <input  [(ngModel)]="Monto"  matInput #input  placeholder="Monto Q.">
+          <mat-hint align="end"></mat-hint>
+        </mat-form-field>
+      </div>
+
+        <table align="center">
+          <td>
+            <button  style="display: flex" color="primary" mat-raised-button (click)="Transferir()" >
+              <mat-icon>done</mat-icon>
+              Realizar
+            </button>
+          </td>
+          <td>
+            <button  style="display: flex" color="primary" mat-raised-button (click)="Regresar()">
+              <mat-icon>arrow_back</mat-icon>
+              Regresar
+            </button>
+          </td>
+        </table>
+      </div>

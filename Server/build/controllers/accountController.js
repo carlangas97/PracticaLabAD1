@@ -38,11 +38,13 @@ class AccountController {
             const cuenta1 = req.body.cuenta1;
             const cuenta2 = req.body.cuenta2;
             const monto = req.body.monto;
-            const filas = yield database_1.default.query('UPDATE practica.Cuenta SET saldo_cuenta=saldo_cuenta-?  WHERE no_cuenta=?  ', [monto, cuenta1]);
+            const fecha = new Date();
+            const filas = yield database_1.default.query('UPDATE practica.Cuenta SET saldo_cuenta=saldo_cuenta-?  WHERE codigo_usuario=?  ', [monto, cuenta1]);
             // res.json({ message: 'debito realizado' });
             if (filas != null) {
-                const filas2 = yield database_1.default.query('UPDATE practica.Cuenta SET saldo_cuenta=saldo_cuenta+?  WHERE no_cuenta=?  ', [monto, cuenta2]);
+                const filas2 = yield database_1.default.query('UPDATE practica.Cuenta SET saldo_cuenta=saldo_cuenta+?  WHERE codigo_usuario=?  ', [monto, cuenta2]);
                 if (filas2 != null) {
+                    yield database_1.default.query('INSERT INTO practica.Transferencias (codigo_salida, codigo_entrada, monto,fecha) VALUES(?,?,?,?)', [cuenta1, cuenta2, monto, fecha]);
                     res.json({ message: 'transferencia realizada' });
                 }
                 else {
