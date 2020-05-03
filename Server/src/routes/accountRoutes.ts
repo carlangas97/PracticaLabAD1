@@ -14,10 +14,9 @@ class AccountRoutes {
         this.router.get('/analisis/account/get-saldo/:cuenta', accountController.getSaldo);
         //this.router.post('/analisis/account/create-account', accountController.CreateAccount);
         
- this.router.get('/analisis/account/get-cuenta', accountController.getCuenta);
- this.router.post('/analisis/transferencia', accountController.maketransaction);
-
-
+        this.router.get('/analisis/account/get-cuenta', accountController.getCuenta);
+        this.router.get('/analisis/account/get-tipo/:cuenta', accountController.getTipo);
+        this.router.post('/analisis/transferencia', accountController.maketransaction);
 
     }
 

@@ -34,6 +34,18 @@ class AccountController {
       
     }
 
+    public async getTipo(req: Request, res: Response){
+        const {cuenta} = req.params;
+        const user = await pool.query('SELECT tipo_usuario FROM practica.Usuario WHERE DPI=?',[cuenta])
+        if(user.length > 0 ){
+            res.json(user);
+        }
+        else{
+            res.send(false);
+        }
+    }
+
+
 public async maketransaction(req: Request, res: Response) {
         
             const cuenta1 = req.body.cuenta1;

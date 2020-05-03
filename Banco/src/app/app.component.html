@@ -5,25 +5,25 @@
     <mat-menu #menu="matMenu">
       <button mat-menu-item [matMenuTriggerFor]="vertebrates">
         <mat-icon>done</mat-icon>
-        <span>Trasnferencias</span>
+        <span>Transferencias</span>
       </button>
       <button mat-menu-item (click)="tipocambio()">
-        <mat-icon>done</mat-icon>
+        <mat-icon>attach_money</mat-icon>
         <span>Tipo de Cambio</span>
       </button>
       <button mat-menu-item (click)="loginout()">
-        <mat-icon>home</mat-icon>
+        <mat-icon>exit_to_app</mat-icon>
         <span>Logout</span>
       </button>
     </mat-menu>
 
     <mat-menu #vertebrates="matMenu">
       <button mat-menu-item  (click)="transferencias()">
-        <mat-icon>done</mat-icon>
+        <mat-icon>compare_arrows</mat-icon>
         <span>Realizar</span>
       </button>
       <button mat-menu-item (click)="reportes()">
-        <mat-icon>done</mat-icon>
+        <mat-icon>bookmarks</mat-icon>
         <span>Reporte</span>
       </button>
     </mat-menu>

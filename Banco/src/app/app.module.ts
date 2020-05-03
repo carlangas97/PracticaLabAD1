@@ -25,6 +25,7 @@ import {LoginService} from "./Servicios/login.service";
 import {MatMenuModule} from "@angular/material/menu";
 import { TrabsferenciasComponent } from './Componentes/trabsferencias/trabsferencias.component';
 import { ReportesComponent } from './Componentes/reportes/reportes.component';
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { ReportesComponent } from './Componentes/reportes/reportes.component';
     RouterModule,
     MatGridListModule,
     MatMenuModule,
+    MatTableModule,
   ],
   providers: [
     RegistrarService,
