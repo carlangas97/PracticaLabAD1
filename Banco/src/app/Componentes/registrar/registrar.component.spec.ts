@@ -58,7 +58,7 @@ describe('RegistrarComponent', () => {
 
   describe('return to login', () => {
     it('should handle error', fakeAsync(() => {
-      component.returnLogin();
+      component.Regresar();
       tick(100);
       expect(component.router.navigated).toBeTruthy();
     }));

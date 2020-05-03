@@ -20,6 +20,8 @@ import { NoPageFoundComponent } from './Componentes/no-page-found/no-page-found.
 import { RegistrarComponent } from './Componentes/registrar/registrar.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RegistrarService} from "./Servicios/registrar.service";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatGridListModule} from "@angular/material/grid-list";
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import {RegistrarService} from "./Servicios/registrar.service";
     FormsModule,
     HttpClientModule,
     RouterModule,
-    HttpClientTestingModule,
+    MatGridListModule,
+    MatMenuModule,
   ],
   providers: [
     RegistrarService,
