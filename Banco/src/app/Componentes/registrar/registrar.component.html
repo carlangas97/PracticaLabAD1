@@ -98,18 +98,24 @@
             <mat-hint align="end"></mat-hint>
           </mat-form-field>
         </div>
-        <table align="center">
-          <td>
-            <button  style="display: flex" color="primary" mat-raised-button (click)="Registrar()">
-              <mat-icon>done</mat-icon>
-              Registrarse
-            </button>
-          </td>
-          <td>
-            <button  style="display: flex" color="primary" mat-raised-button (click)="Regresar()">
-              <mat-icon>arrow_back</mat-icon>
-              Regresar
-            </button>
-          </td>
+        <table align="center" summary="registrar">
+          <tr>
+            <th></th>
+            <th></th>
+          </tr>
+          <tr>
+            <td>
+              <button  style="display: flex" color="primary" mat-raised-button (click)="Registrar()">
+                <mat-icon>done</mat-icon>
+                Registrarse
+              </button>
+            </td>
+            <td>
+              <button  style="display: flex" color="primary" mat-raised-button (click)="Regresar()">
+                <mat-icon>arrow_back</mat-icon>
+                Regresar
+              </button>
+            </td>
+          </tr>
         </table>
       </div>
