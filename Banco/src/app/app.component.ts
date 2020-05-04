@@ -50,7 +50,7 @@ export class AppComponent {
 
   homis(){
     this.prueba();
-    this.router.navigate([`/`]);
+    this.router.navigate([`/home/${this.global.dpis}`]);
   }
 
 }
