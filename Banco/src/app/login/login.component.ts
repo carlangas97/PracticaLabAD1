@@ -45,16 +45,7 @@ export class LoginComponent implements OnInit {
         res => {
           console.log(res);
           this.datos = res;
-          if(res !== false){
-            this.global.dpis = this.cuenta;
-            this.global.codigo = this.datos[0].codigo_usuario;
-            this.global.saldo = this.datos[0].saldo_cuenta;
-            this.router.navigate([`/home/${this.cuenta}`]);
-            // this.openSnackBar('nitido', 'Close');
-          }
-          else{
-            this.openSnackBar('Datos Incorrectos', 'Close');
-          }
+          this.GuardarDatos(res);
         },
         error => console.error('error')
       );
@@ -66,5 +57,18 @@ export class LoginComponent implements OnInit {
 
   registrar(){
     this.router.navigate([`/registro`]);
+  }
+
+  GuardarDatos(res){
+    if(res !== false){
+      this.global.dpis = this.cuenta;
+      this.global.codigo = this.datos[0].codigo_usuario;
+      this.global.saldo = this.datos[0].saldo_cuenta;
+      this.router.navigate([`/home/${this.cuenta}`]);
+      // this.openSnackBar('nitido', 'Close');
+    }
+    else{
+      this.openSnackBar('Datos Incorrectos', 'Close');
+    }
   }
 }

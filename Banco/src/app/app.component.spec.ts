@@ -11,6 +11,7 @@ import {TrabsferenciasComponent} from "./Componentes/trabsferencias/trabsferenci
 import {ReportesComponent} from "./Componentes/reportes/reportes.component";
 import {MatMenuModule} from "@angular/material/menu";
 import {GlobalService} from "./Servicios/global.service";
+import {HomeComponent} from "./Componentes/home/home.component";
 
 
 describe('AppComponent', () => {
@@ -23,6 +24,7 @@ describe('AppComponent', () => {
     { path: '', component: LoginComponent },
     { path: 'transferencias', component: TrabsferenciasComponent },
     { path: 'reportes/:dpi', component: ReportesComponent },
+    { path: 'home/:dpi', component: HomeComponent },
   ];
 
   beforeEach(async(() => {
@@ -65,6 +67,7 @@ describe('AppComponent', () => {
 
   describe('reports', () => {
     it('should handle error', fakeAsync(() => {
+      service.dpis = 123
       component.reportes();
       tick(50);
       expect(component.router.navigated).toBeTruthy();
@@ -73,6 +76,7 @@ describe('AppComponent', () => {
 
   describe('transfers', () => {
     it('should handle error', fakeAsync(() => {
+      service.dpis = 123
       component.transferencias();
       tick(50);
       expect(component.router.navigated).toBeTruthy();
@@ -96,11 +100,19 @@ describe('AppComponent', () => {
     }));
   });
 
-  it('should handle error', fakeAsync(() => {
+  describe('test', () => {
+    it('should handle error', fakeAsync(() => {
+      service.dpis = 1231
+      component.tipocambio();
+      tick(100);
+      expect(component.router.navigated).toBeTruthy();
+    }));
+  });
+
+  it('should redirect to home', fakeAsync(() => {
     service.dpis = null
-    spyOn(component.snackBar, 'open');
-    component.tipocambio();
+    component.homis();
     tick(100);
-    expect(component.snackBar.open).toHaveBeenCalledWith('Iniciar Sesion!!', 'Close', {duration: 2000});
+    expect(component.router.navigated).toBeTruthy();
   }));
 });

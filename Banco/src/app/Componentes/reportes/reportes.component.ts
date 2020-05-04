@@ -42,22 +42,24 @@ export class ReportesComponent implements OnInit {
     this.reportesService.GetTipo().subscribe(
       res => {
         console.log(res);
-        this.respuesta = res
-        this.tipo = this.respuesta[0].tipo_usuario
-        if (this.tipo = 1) {
-           this.reportesService.ReporteUsuario().subscribe(
-            res => {
-              this.dataSource = res;
-            }
-          )
-        } else {
-          this.reportesService.ReporteGeneral().subscribe(
-          res => {
-            this.dataSource = res;
-          }
-        )
-        }
+        this.Reportes(res);
       }
     )
+  }
+
+  Reportes(res){
+    this.respuesta = res
+    this.tipo = this.respuesta[0].tipo_usuario
+    if (this.tipo == 1) {
+      this.reportesService.ReporteUsuario().subscribe(
+        res2 => {
+          this.dataSource = res2;
+        })
+    } else {
+      this.reportesService.ReporteGeneral().subscribe(
+        res2 => {
+          this.dataSource = res2;
+        })
+    }
   }
 }

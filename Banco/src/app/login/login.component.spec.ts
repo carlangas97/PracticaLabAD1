@@ -9,6 +9,7 @@ import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
 import {LoginService} from "../Servicios/login.service";
+import {HomeComponent} from "../Componentes/home/home.component";
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -17,6 +18,7 @@ describe('LoginComponent', () => {
 
   const routes: Routes = [
     { path: 'registro', component: RegistrarComponent },
+    { path: 'home/:cuenta', component: HomeComponent },
   ];
 
   beforeEach(async(() => {
@@ -73,6 +75,26 @@ describe('LoginComponent', () => {
       component.validateLogin();
       tick(500);
       expect(component.snackBar.open).toHaveBeenCalledWith('Datos Incorrectos', 'Close', {duration: 2000});
+    }));
+  });
+
+  describe('if data are null', () => {
+    it('should handle error', fakeAsync(() => {
+      spyOn(component.snackBar, 'open');
+      component.GuardarDatos(false);
+      tick(500);
+      expect(component.snackBar.open).toHaveBeenCalledWith('Datos Incorrectos', 'Close', {duration: 2000});
+    }));
+  });
+
+  describe('get data', () => {
+    it('should assign data', fakeAsync(() => {
+      component.cuenta = 15315
+      component.datos = [{codigo_usuario: 1, saldo_cuenta: 50}];
+      spyOn(component.snackBar, 'open');
+      component.GuardarDatos(true);
+      tick(50);
+      expect(component.router.navigated).toBeTruthy();
     }));
   });
 
