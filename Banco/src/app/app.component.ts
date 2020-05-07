@@ -35,7 +35,7 @@ export class AppComponent {
 
   tipocambio(){
     this.prueba();
-    this.router.navigate([`/`]); // cambiar a la ventana de tipo de cambio
+    this.openSnackBar('Opcion no disponible por el momento', '');
   }
 
   transferencias(){
