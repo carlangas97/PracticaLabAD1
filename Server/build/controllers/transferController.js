@@ -16,7 +16,7 @@ const database_1 = __importDefault(require("../database"));
 class TransferController {
     general_report(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const transfer = yield database_1.default.query('SELECT * from practica.Transferencias');
+            const transfer = yield database_1.default.query('SELECT * from practica.Transferencias ORDER BY fecha desc');
             res.json(transfer);
         });
     }
@@ -24,7 +24,7 @@ class TransferController {
         return __awaiter(this, void 0, void 0, function* () {
             const { cuenta } = req.params;
             const transfer = yield database_1.default.query('SELECT * from practica.Transferencias t ' +
-                'where t.codigo_salida = ? or t.codigo_entrada = ? ', [cuenta, cuenta]);
+                'where t.codigo_salida = ? or t.codigo_entrada = ? ORDER BY fecha desc ', [cuenta, cuenta]);
             res.json(transfer);
         });
     }

@@ -7,7 +7,7 @@ import { blacklist} from '../libs/listblack'
 class TransferController {
 
     public async general_report(req: Request, res: Response) {
-        const transfer = await pool.query('SELECT * from practica.Transferencias');
+        const transfer = await pool.query('SELECT * from practica.Transferencias ORDER BY fecha desc');
         res.json(transfer);
     }
 
@@ -15,7 +15,7 @@ class TransferController {
         const {cuenta} = req.params;
 
         const transfer = await pool.query('SELECT * from practica.Transferencias t '+
-        'where t.codigo_salida = ? or t.codigo_entrada = ? ',[cuenta, cuenta]);
+        'where t.codigo_salida = ? or t.codigo_entrada = ? ORDER BY fecha desc ',[cuenta, cuenta]);
         res.json(transfer);
      }
 
