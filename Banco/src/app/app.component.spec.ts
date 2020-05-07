@@ -66,7 +66,7 @@ describe('AppComponent', () => {
   });
 
   describe('reports', () => {
-    it('should handle error', fakeAsync(() => {
+    it('should redirect', fakeAsync(() => {
       service.dpis = 123
       component.reportes();
       tick(50);
@@ -75,7 +75,7 @@ describe('AppComponent', () => {
   });
 
   describe('transfers', () => {
-    it('should handle error', fakeAsync(() => {
+    it('should redirect', fakeAsync(() => {
       service.dpis = 123
       component.transferencias();
       tick(50);
@@ -84,7 +84,7 @@ describe('AppComponent', () => {
   });
 
   describe('logout', () => {
-    it('should handle error', fakeAsync(() => {
+    it('should redirect', fakeAsync(() => {
       component.loginout();
       tick(50);
       expect(component.router.navigated).toBeTruthy();
@@ -94,18 +94,10 @@ describe('AppComponent', () => {
   describe('test', () => {
     it('should handle error', fakeAsync(() => {
       service.dpis = 1231
+      spyOn(component.snackBar, 'open');
       component.tipocambio();
       tick(100);
-      expect(component.router.navigated).toBeTruthy();
-    }));
-  });
-
-  describe('test', () => {
-    it('should handle error', fakeAsync(() => {
-      service.dpis = 1231
-      component.tipocambio();
-      tick(100);
-      expect(component.router.navigated).toBeTruthy();
+      expect(component.snackBar.open).toHaveBeenCalledWith('Opcion no disponible por el momento', '', {duration: 2000});
     }));
   });
 
