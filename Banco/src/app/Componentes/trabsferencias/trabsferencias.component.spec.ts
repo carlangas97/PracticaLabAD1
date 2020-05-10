@@ -67,7 +67,7 @@ describe('TrabsferenciasComponent', () => {
       component.Entrada = 1234
       component.Transferir();
       tick(50);
-      expect(true).toBeTruthy();
+      expect(true).toBeFalsy();
     }));
   });
 
